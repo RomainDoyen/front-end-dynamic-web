@@ -30,7 +30,7 @@ export default function typography({
   className
 }: TypographyProps) {
 
-  let variantStyles: string = "";
+  let variantStyles: string = "", colorStyles: string = "";
 
   switch (variant) {
     case "display":
@@ -77,12 +77,30 @@ export default function typography({
       break;
   }
 
+  switch (theme) {
+    case "black":
+      colorStyles = "text-black";
+      break;
+    case "gray":
+      colorStyles = "text-gray-600";
+      break;
+    case "white":
+      colorStyles = "text-white";
+      break;
+    case "primary":
+      colorStyles = "text-primary";
+      break;
+    case "secondary":
+      colorStyles = "text-secondary";
+      break;
+  }
+
   return (
     <Component className={clsx(
       variantStyles, 
       weight === "medium" && "font-medium", 
       className, 
-      theme,
+      colorStyles,
     )}>
       {children}
     </Component>
