@@ -79,10 +79,10 @@ export default function typography({
 
   switch (theme) {
     case "black":
-      colorStyles = "text-black";
+      colorStyles = "text-gray";
       break;
     case "gray":
-      colorStyles = "text-gray-600";
+      colorStyles = "text-gray-700";
       break;
     case "white":
       colorStyles = "text-white";
