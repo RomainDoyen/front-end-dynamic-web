@@ -1,4 +1,5 @@
 import Seo from "@/ui/components/seo";
+import Typography from "@/ui/design-system/typography/typography";
 
 export default function Home() {
   return (
@@ -7,7 +8,9 @@ export default function Home() {
         title={"Dynamic Web"} 
         description={"Description..."}
       />
-      <p>Bienvenue sur Dynamic Web !</p>
+      <Typography component="h1" variant="display">
+        Bienvenue sur Dynamic Web !
+      </Typography>
     </div>
   );
 }
