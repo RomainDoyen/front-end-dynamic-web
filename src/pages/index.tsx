@@ -7,7 +7,7 @@ export default function Home() {
         title={"Dynamic Web"} 
         description={"Description..."}
       />
-      <p>Hello world!</p>
+      <p>Bienvenue sur Dynamic Web !</p>
     </div>
   );
 }
