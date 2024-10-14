@@ -3,6 +3,7 @@ import Logo from "../../design-system/logo/logo"
 import Typography from "@/ui/design-system/typography/typography"
 import Button from "@/ui/design-system/button/button"
 import Link from "next/link"
+import ActiveLink from "./active-link"
 
 export default function navigation() {
   return (
@@ -23,10 +24,10 @@ export default function navigation() {
         </Link>
         <div className="flex items-center gap-7">
           <Typography component="div" variant="caption3" className="flex items-center gap-7">
-            <Link href="/design-system">Design System</Link>
-            <Link href="/projets">Projets</Link>
-            <Link href="/formations">Formations</Link>
-            <Link href="/contacts">Contacts</Link>
+            <ActiveLink href="/design-system">Design System</ActiveLink>
+            <ActiveLink href="/projets">Projets</ActiveLink>
+            <ActiveLink href="/formations">Formations</ActiveLink>
+            <ActiveLink href="/contacts">Contacts</ActiveLink>
           </Typography>
           <div className="flex items-center gap-2">
             <Button variant="accent" size="small">
