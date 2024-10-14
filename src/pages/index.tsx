@@ -18,6 +18,9 @@ export default function Home() {
         Cliquez ici
       </Button>
       <Button variant="ico" size="medium" icon={{ icon: RiAccountCircleFill }} iconTheme="accent" />
+      <Button variant="accent" size="medium" icon={{ icon: RiAccountCircleFill }} iconPosition="right">
+        Cliquez ici
+      </Button>
     </div>
   );
 }
