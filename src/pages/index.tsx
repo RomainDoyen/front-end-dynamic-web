@@ -5,6 +5,7 @@ import { RiAccountCircleFill } from "react-icons/ri";
 import Logo from "@/ui/design-system/logo/logo";
 import Avatar from "@/ui/design-system/avatar/avatar";
 import Container from "@/ui/components/container/container";
+import Navigation from "@/ui/components/navigation/navigation";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         title={"Dynamic Web"} 
         description={"Description..."}
       />
+      <Navigation />
       <Container className="py-10 space-y-10">
         <Typography component="h1" variant="display">
           Bienvenue sur Dynamic Web !
