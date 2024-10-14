@@ -3,6 +3,7 @@ import Typography from "@/ui/design-system/typography/typography";
 import Button from "@/ui/design-system/button/button";
 import { RiAccountCircleFill } from "react-icons/ri";
 import Logo from "@/ui/design-system/logo/logo";
+import Avatar from "@/ui/design-system/avatar/avatar";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       </Button>
       {/* <Spinner size="small" /> */}
       <Logo size="large" />
+      <Avatar src="/images/avatar.png" alt="avatar" size="large" />
     </div>
   );
 }
