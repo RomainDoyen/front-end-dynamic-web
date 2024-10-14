@@ -1,9 +1,10 @@
 import clsx from "clsx";
+import { iconProps } from "@/types/iconProps";
 
 type ButtonProps = {
   size?: 'small' | 'medium' | 'large';
   variant?: 'accent' | 'secondary' | 'outline' | 'disabled' | 'ico';
-  icon?: any;
+  icon?: iconProps;
   iconTheme?: 'accent' | 'secondary' | 'gray';
   iconPosition?: 'left' | 'right';
   disabled?: boolean;
