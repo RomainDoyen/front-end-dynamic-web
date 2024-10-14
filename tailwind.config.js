@@ -7,6 +7,7 @@ module.exports = {
     extend: {},
     borderRadius: {
       DEFAULT: '10px',
+      full: '9999px',
     },
     colors: {
       white: '#FFFFFF',

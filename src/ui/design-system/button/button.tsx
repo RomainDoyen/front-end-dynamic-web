@@ -42,19 +42,34 @@ export default function button({
       variantStyle = 'bg-gray-300 border border-gray-500 text-gray-600 rounded cursor-not-allowed';
       break;
     case 'ico':
-      variantStyle = '';
+      if (iconTheme === 'accent') {
+        variantStyle = 'bg-primary hover:bg-primary-400 text-white rounded-full';
+      } else if (iconTheme === 'secondary') {
+        variantStyle = 'bg-primary-200 hover:bg-primary-300/50 text-primary rounded-full';
+      } else if (iconTheme === 'gray') {
+        variantStyle = 'bg-gray-700 hover:bg-gray-600/50 text-white rounded-full';
+      }
       break;
   }
 
   switch (size) {
     case 'small':
-      sizeStyle = 'text-caption3 font-medium px-[14px] py-[12px]';
+      sizeStyle = `text-caption3 font-medium ${
+        variant === 'ico' ? "flex items-center justify-center w-[40px] h-[40px]" : "px-[14px] py-[12px]"
+      }`;
+      icoSize = 18;
       break;
     case 'medium':
-      sizeStyle = 'text-caption2 font-medium px-[18px] py-[15px]';
+      sizeStyle = `text-caption2 font-medium ${
+        variant === 'ico' ? "flex items-center justify-center w-[50px] h-[50px]" : "px-[18px] py-[15px]"
+      }`;
+      icoSize = 20;
       break;
     case 'large':
-      sizeStyle = 'text-caption1 font-medium px-[22px] py-[18px]';
+      sizeStyle = `text-caption1 font-medium ${
+        variant === 'ico' ? "flex items-center justify-center w-[60px] h-[60px]" : "px-[22px] py-[18px]"
+      }`;
+      icoSize = 24;
       break;
   }
 
@@ -65,7 +80,11 @@ export default function button({
       className={clsx(variantStyle, sizeStyle, icoSize)}
       disabled={disabled}
     >
-      {children}
+      {icon && variant === 'ico' ? (
+        <icon.icon size={icoSize} />
+      ) : (
+        <>{children}</>
+      )}
     </button>
   )
 }
