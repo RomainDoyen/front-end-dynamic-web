@@ -2,7 +2,7 @@ import Seo from "@/ui/components/seo";
 import Typography from "@/ui/design-system/typography/typography";
 import Button from "@/ui/design-system/button/button";
 import { RiAccountCircleFill } from "react-icons/ri";
-import Spinner from "@/ui/design-system/spinner/spinner";
+import Logo from "@/ui/design-system/logo/logo";
 
 export default function Home() {
   return (
@@ -25,6 +25,7 @@ export default function Home() {
         Cliquez ici
       </Button>
       {/* <Spinner size="small" /> */}
+      <Logo size="large" />
     </div>
   );
 }
