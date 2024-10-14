@@ -79,7 +79,7 @@ export default function button({
     <button 
       onClick={onClick}
       type="button"
-      className={clsx(variantStyle, sizeStyle, icoSize, isLoading && "cursor-wait", "relative")}
+      className={clsx(variantStyle, sizeStyle, icoSize, isLoading && "cursor-wait", "relative animate")}
       disabled={disabled}
     >
       {isLoading && (
