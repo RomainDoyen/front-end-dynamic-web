@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    borderRadius: {
+      DEFAULT: '10px',
+    },
     colors: {
       white: '#FFFFFF',
       black: '#000000',
