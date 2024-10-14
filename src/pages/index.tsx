@@ -21,7 +21,10 @@ export default function Home() {
       <Button variant="accent" size="medium" icon={{ icon: RiAccountCircleFill }} iconPosition="right">
         Cliquez ici
       </Button>
-      <Spinner size="small" />
+      <Button variant="accent" size="medium" isLoading>
+        Cliquez ici
+      </Button>
+      {/* <Spinner size="small" /> */}
     </div>
   );
 }
