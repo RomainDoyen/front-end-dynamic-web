@@ -1,7 +1,9 @@
+import { linkType } from "@/lib/link-type";
+
 export type AppLinks = {
   label: string;
   baseUrl: string;
-  type: 'internal' | 'external';
+  type: linkType;
 }
 
 export type FooterLinks = {

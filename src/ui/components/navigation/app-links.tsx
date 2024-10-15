@@ -1,6 +1,6 @@
 import { AppLinks, FooterLinks } from "@/types/app-links";
 
-export const footerApplicationLinks: AppLinks[] = [
+const footerApplicationLinks: AppLinks[] = [
   {
     label: 'Accueil',
     baseUrl: '/',
@@ -23,7 +23,7 @@ export const footerApplicationLinks: AppLinks[] = [
   },
 ];
 
-export const footerUsersLinks: AppLinks[] = [
+const footerUsersLinks: AppLinks[] = [
   {
     label: 'Mon espace',
     baseUrl: '/#',
@@ -46,7 +46,7 @@ export const footerUsersLinks: AppLinks[] = [
   },
 ];
 
-export const footerInformationLinks: AppLinks[] = [
+const footerInformationLinks: AppLinks[] = [
   {
     label: 'CGU',
     baseUrl: '/#',
@@ -69,7 +69,7 @@ export const footerInformationLinks: AppLinks[] = [
   },
 ];
 
-export const footerSocialNetworksLinks: AppLinks[] = [
+const footerSocialNetworksLinks: AppLinks[] = [
   {
     label: 'Youtube',
     baseUrl: '/#',
