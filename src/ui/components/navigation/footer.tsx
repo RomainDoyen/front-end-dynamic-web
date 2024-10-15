@@ -1,10 +1,21 @@
 import Container from "../container/container"
 import Typography from "@/ui/design-system/typography/typography"
 import Image from "next/image"
+import { footerApplicationLinks } from "./app-links";
+import { v4 as uuid4 } from "uuid";
+import ActiveLink from "@/ui/components/navigation/active-link";
 
 export default function footer() {
 
   const currentYear = new Date().getFullYear();
+
+  // const footerNavigationList = footerApplicationLinks.map((link) => {
+  //   return (
+  //     <div key={uuid4()} className="flex flex-col gap-1">
+  //       {link.label}
+  //     </div>
+  //   )
+  // });
 
   return (
     <div className="bg-gray">
@@ -33,7 +44,7 @@ export default function footer() {
           </a>
         </div>
         <div className="">
-          Liste de liens
+          <Footerlinks />
         </div>
       </Container>
       <Container className="pt-9 pb-11 space-y-11">
@@ -52,6 +63,46 @@ export default function footer() {
           <div className=""></div>
         </div>
       </Container>
+    </div>
+  )
+}
+
+function Footerlinks() {
+
+  const linkLists = footerApplicationLinks.map((link) => {
+    return (
+      <div key={uuid4()}>
+        {link.type === 'internal' && (
+          <ActiveLink href={link.baseUrl}>
+            {link.label}
+          </ActiveLink>
+        )} 
+        {link.type === 'external' && (
+          <a href={link.baseUrl} target="_blank">
+            {link.label}
+          </a>
+        )}
+      </div>
+    )
+  });
+
+  return (
+    <div className="min-w-[190px]">
+      <Typography 
+        theme="white" 
+        variant="caption2" 
+        weight="medium" 
+        className="pb-5"
+      >
+        Titre
+      </Typography>
+      <Typography 
+        theme="gray" 
+        variant="caption3" 
+        className="space-y-4"
+      >
+        {linkLists}
+      </Typography>
     </div>
   )
 }
