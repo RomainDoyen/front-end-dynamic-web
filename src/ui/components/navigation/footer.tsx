@@ -5,6 +5,7 @@ import { v4 as uuid4 } from "uuid";
 import ActiveLink from "@/ui/components/navigation/active-link";
 import { FooterLinks } from "@/types/app-links";
 import { footerLinks } from "./app-links";
+import { linkTypes } from "@/lib/link-type";
 
 export default function footer() {
 
@@ -73,12 +74,12 @@ function Footerlinks({ data }: FooterLinksProps) {
   const linkLists = data.links.map((link) => {
     return (
       <div key={uuid4()}>
-        {link.type === 'internal' && (
+        {link.type === linkTypes.internal && (
           <ActiveLink href={link.baseUrl}>
             {link.label}
           </ActiveLink>
         )} 
-        {link.type === 'external' && (
+        {link.type === linkTypes.external && (
           <a href={link.baseUrl} target="_blank">
             {link.label}
           </a>
