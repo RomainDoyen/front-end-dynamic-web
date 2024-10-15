@@ -3,3 +3,8 @@ export type AppLinks = {
   baseUrl: string;
   type: 'internal' | 'external';
 }
+
+export type FooterLinks = {
+  label: string;
+  links: AppLinks[];
+}

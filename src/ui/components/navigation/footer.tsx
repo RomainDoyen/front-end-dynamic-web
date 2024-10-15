@@ -1,21 +1,18 @@
 import Container from "../container/container"
 import Typography from "@/ui/design-system/typography/typography"
 import Image from "next/image"
-import { footerApplicationLinks } from "./app-links";
 import { v4 as uuid4 } from "uuid";
 import ActiveLink from "@/ui/components/navigation/active-link";
+import { FooterLinks } from "@/types/app-links";
+import { footerLinks } from "./app-links";
 
 export default function footer() {
 
   const currentYear = new Date().getFullYear();
 
-  // const footerNavigationList = footerApplicationLinks.map((link) => {
-  //   return (
-  //     <div key={uuid4()} className="flex flex-col gap-1">
-  //       {link.label}
-  //     </div>
-  //   )
-  // });
+  const footerNavigationLinks = footerLinks.map((link) => {
+    return <Footerlinks key={uuid4()} data={link} />;
+  });
 
   return (
     <div className="bg-gray">
@@ -43,8 +40,8 @@ export default function footer() {
             />
           </a>
         </div>
-        <div className="">
-          <Footerlinks />
+        <div className="flex gap-7">
+          {footerNavigationLinks}
         </div>
       </Container>
       <Container className="pt-9 pb-11 space-y-11">
@@ -67,9 +64,13 @@ export default function footer() {
   )
 }
 
-function Footerlinks() {
+type FooterLinksProps = {
+  data: FooterLinks;
+}
 
-  const linkLists = footerApplicationLinks.map((link) => {
+function Footerlinks({ data }: FooterLinksProps) {
+
+  const linkLists = data.links.map((link) => {
     return (
       <div key={uuid4()}>
         {link.type === 'internal' && (
@@ -94,7 +95,7 @@ function Footerlinks() {
         weight="medium" 
         className="pb-5"
       >
-        Titre
+        {data.label}
       </Typography>
       <Typography 
         theme="gray" 
