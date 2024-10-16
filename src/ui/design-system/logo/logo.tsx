@@ -24,7 +24,7 @@ export default function logo({ size = 'medium' }: logoProps) {
   return (
     <div>
       <svg width={sizeLogo} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 960 560" enable-background="new 0 0 960 560" xmlSpace="preserve">
+        viewBox="0 0 960 560" xmlSpace="preserve">
         <g id="Calque_10">
           <g>
             <ellipse fill="#1E1F22" cx="481" cy="271.1" rx="258" ry="258.1" />
