@@ -49,7 +49,7 @@ export default function button({
       } else if (iconTheme === 'secondary') {
         variantStyle = 'bg-primary-200 hover:bg-primary-300/50 text-primary rounded-full';
       } else if (iconTheme === 'gray') {
-        variantStyle = 'bg-gray-700 hover:bg-gray-600/50 text-white rounded-full';
+        variantStyle = 'bg-gray-800 hover:bg-gray-700/50 text-white rounded-full';
       }
       break;
   }

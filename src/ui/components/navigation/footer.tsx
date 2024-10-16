@@ -60,7 +60,7 @@ export default function footer() {
             {` - Design And Creation`}
           </Typography>
           <div className="">
-            <Socialnetworksbuttons />
+            <Socialnetworksbuttons theme="gray" />
           </div>
         </div>
       </Container>
