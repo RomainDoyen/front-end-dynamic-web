@@ -6,7 +6,7 @@ import Link from "next/link";
 
 type ButtonProps = {
   size?: 'small' | 'medium' | 'large';
-  variant?: 'accent' | 'secondary' | 'outline' | 'disabled' | 'ico';
+  variant?: 'accent' | 'secondary' | 'outline' | 'disabled' | 'ico' | 'success';
   icon?: iconProps;
   iconTheme?: 'accent' | 'secondary' | 'gray';
   iconPosition?: 'left' | 'right';
@@ -48,6 +48,9 @@ export default function button({
       break;
     case 'disabled':
       variantStyle = 'bg-gray-300 border border-gray-500 text-gray-600 rounded cursor-not-allowed';
+      break;
+    case 'success':
+      variantStyle = 'bg-secondary hover:bg-secondary-400 text-white rounded';
       break;
     case 'ico':
       if (iconTheme === 'accent') {
