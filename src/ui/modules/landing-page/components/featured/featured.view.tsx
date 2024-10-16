@@ -46,18 +46,16 @@ export default function featuredview() {
     return (
       <div key={uuidv4()} className="flex flex-col items-center justify-center bg-white rounded p-7">
         <div className="relative w-[130px] h-[130px] rounded-full mb-6 p-10 overflow-hidden">
-          <Image 
+          <Image
+            fill 
             src={feature.imagePath} 
             alt={feature.imageAlt}
-            width={130} 
-            height={130}
             className="object-scale-down blur-2xl" 
           />
-          <Image 
+          <Image
+            fill 
             src={feature.imagePath} 
             alt={feature.imageAlt} 
-            width={150} 
-            height={150}
             className="object-scale-down" 
           />
         </div>
