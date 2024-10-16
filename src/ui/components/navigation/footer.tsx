@@ -6,6 +6,7 @@ import ActiveLink from "@/ui/components/navigation/active-link";
 import { FooterLinks } from "@/types/app-links";
 import { footerLinks } from "./app-links";
 import { linkTypes } from "@/lib/link-type";
+import Socialnetworksbuttons from "./social-networks-buttons";
 
 export default function footer() {
 
@@ -58,7 +59,9 @@ export default function footer() {
             </a>
             {` - Design And Creation`}
           </Typography>
-          <div className=""></div>
+          <div className="">
+            <Socialnetworksbuttons />
+          </div>
         </div>
       </Container>
     </div>
