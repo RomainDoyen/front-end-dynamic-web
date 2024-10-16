@@ -17,7 +17,9 @@ export default function socialnetworksbuttons({ className, theme = "accent" }: S
       variant="ico"
       iconTheme={theme}
       icon={{ icon: link.icon ? link.icon : RiAB }}
-      data={link} 
+      data={link}
+      baseUrl={link.baseUrl}
+      linkType={link.type}
     />;
   });
 

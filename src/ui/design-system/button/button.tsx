@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import { iconProps } from "@/types/iconProps";
 import Spinner from "../spinner/spinner";
+import { linkType, linkTypes } from "@/lib/link-type";
+import Link from "next/link";
 
 type ButtonProps = {
   size?: 'small' | 'medium' | 'large';
@@ -11,7 +13,9 @@ type ButtonProps = {
   disabled?: boolean;
   isLoading?: boolean;
   children?: React.ReactNode;
-  onClick?: () => void;
+  baseUrl?: string;
+  linkType?: linkType;
+  action?: () => void;
 };
 
 export default function button({
@@ -23,7 +27,9 @@ export default function button({
   disabled,
   isLoading,
   children, 
-  onClick 
+  baseUrl,
+  linkType = 'internal',
+  action = () => {},
 }: ButtonProps) {
 
   let variantStyle: string = "", 
@@ -75,14 +81,15 @@ export default function button({
       break;
   }
 
-  return (
-    <button 
-      onClick={onClick}
-      type="button"
-      className={clsx(variantStyle, sizeStyle, icoSize, isLoading && "cursor-wait", "relative animate")}
-      disabled={disabled}
-    >
-      {isLoading && (
+  const handleClick = () => {
+    if (action) {
+      action();
+    }
+  };
+
+  const buttonContent = (
+    <>
+    {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center">
           {variant === "accent" || variant === 'ico' ? (
             <Spinner size="small" variant="white"/>
@@ -106,6 +113,35 @@ export default function button({
           </div>
         )}
       </div>
+    </>
+  );
+
+  const buttonElement = (
+    <button 
+      onClick={handleClick}
+      type="button"
+      className={clsx(variantStyle, sizeStyle, icoSize, isLoading && "cursor-wait", "relative animate")}
+      disabled={disabled}
+    >
+      {buttonContent}
     </button>
-  )
+  );
+
+  if (baseUrl) {
+    if (linkType === linkTypes.external) {
+      return (
+        <a href={baseUrl} target="_blank">
+          {buttonElement}
+        </a>
+      );
+    } else if (linkType === linkTypes.internal) {
+      return (
+        <Link href={baseUrl}>
+          {buttonElement}
+        </Link>
+      )
+    }
+  }
+
+  return buttonElement;
 }
