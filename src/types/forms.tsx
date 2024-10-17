@@ -1,7 +1,7 @@
 export type FormType = {
   form: {
     errors: any;
-    control: any;
+    control?: any;
     register: any;
     isLoading: boolean;
     handleSubmit: any;

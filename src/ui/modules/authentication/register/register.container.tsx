@@ -1,14 +1,14 @@
 import { SubmitHandler, useForm } from "react-hook-form"
 import Registerview from "./register.view"
 import { RegisterFormFieldType } from "@/types/forms"
+import { useState } from "react";
 
 export default function RegisterContainer() {
 
-  const isLoading = false;
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const {  
     handleSubmit, 
-    control,
     formState: { errors },
     register,
     setError,
@@ -16,11 +16,7 @@ export default function RegisterContainer() {
   } = useForm<RegisterFormFieldType>()
   
   const onSubmit: SubmitHandler<RegisterFormFieldType> = async (formData) => {
-    try {
-      // Call the API
-    } catch (error) {
-      console.log(error)
-    }
+    setIsLoading(true);
   }
 
   return (
@@ -28,10 +24,10 @@ export default function RegisterContainer() {
       <Registerview 
         form={{
           errors,
-          control,
           register,
           handleSubmit,
           onSubmit,
+          isLoading,
         }}
       />
     </div>
