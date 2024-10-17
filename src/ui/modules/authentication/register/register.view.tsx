@@ -4,8 +4,13 @@ import Box from "@/ui/design-system/box/box"
 import Typography from "@/ui/design-system/typography/typography"
 import Link from "next/link"
 import Registerform from "./register.form"
+import { FormType } from "@/types/forms"
 
-export default function registerview() {
+type RegisterType = {
+  form: FormType
+}
+
+export default function registerview({ form }: RegisterType) {
   return (
     <Container className="grid grid-cols-2 gap-20 mb-32">
       <div className="flex items-center">
@@ -29,7 +34,7 @@ export default function registerview() {
               </Typography>
             </div>
           </div>
-          <Registerform />
+          <Registerform form={form} />
         </Box>
       </div>
     </Container>

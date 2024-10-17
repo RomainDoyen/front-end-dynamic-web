@@ -16,6 +16,8 @@ type ButtonProps = {
   baseUrl?: string;
   linkType?: linkType;
   action?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  fullWidth?: boolean;
 };
 
 export default function button({
@@ -30,6 +32,8 @@ export default function button({
   baseUrl,
   linkType = 'internal',
   action = () => {},
+  type = 'button',
+  fullWidth = false,
 }: ButtonProps) {
 
   let variantStyle: string = "", 
@@ -122,8 +126,8 @@ export default function button({
   const buttonElement = (
     <button 
       onClick={handleClick}
-      type="button"
-      className={clsx(variantStyle, sizeStyle, icoSize, isLoading && "cursor-wait", "relative animate")}
+      type={type}
+      className={clsx(variantStyle, sizeStyle, icoSize, isLoading && "cursor-wait", fullWidth && "w-full", "relative animate")}
       disabled={disabled}
     >
       {buttonContent}
