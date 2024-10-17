@@ -4,8 +4,13 @@ import Box from "@/ui/design-system/box/box";
 import Typography from "@/ui/design-system/typography/typography";
 import Link from "next/link";
 import Forgetpasswordform from "./forget-password.form";
+import { FormType } from '@/types/forms'
 
-export default function forgetpasswordview() {
+type RegisterType = {
+  form: FormType
+}
+
+export default function forgetpasswordview({ form }: RegisterType ) {
   return (
     <Container className="grid grid-cols-2 gap-20 mb-32">
       <div className="flex items-center">
@@ -28,7 +33,7 @@ export default function forgetpasswordview() {
               </Typography>
             </div>
           </div>
-          <Forgetpasswordform />
+          <Forgetpasswordform form={form} />
         </Box>
       </div>
     </Container>

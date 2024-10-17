@@ -14,3 +14,12 @@ export type RegisterFormFieldType = {
   password: string;
   how_did_hear: string;
 }
+
+export type LoginFormFieldType = {
+  email: string;
+  password: string;
+}
+
+export type ForgetPasswordFormFieldType = {
+  email: string;
+}

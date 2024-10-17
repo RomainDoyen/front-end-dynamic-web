@@ -4,8 +4,13 @@ import Typography from '@/ui/design-system/typography/typography'
 import Image from 'next/image'
 import Link from 'next/link'
 import Loginform from './login.form'
+import { FormType } from '@/types/forms'
 
-export default function loginview() {
+type RegisterType = {
+  form: FormType
+}
+
+export default function loginview({ form }: RegisterType ) {
   return (
     <Container className="grid grid-cols-2 gap-20 mb-32">
       <div className="flex items-center">
@@ -29,7 +34,7 @@ export default function loginview() {
               </Typography>
             </div>
           </div>
-          <Loginform />
+          <Loginform form={form} />
         </Box>
       </div>
     </Container>

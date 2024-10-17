@@ -128,7 +128,7 @@ export default function button({
       onClick={handleClick}
       type={type}
       className={clsx(variantStyle, sizeStyle, icoSize, isLoading && "cursor-wait", fullWidth && "w-full", "relative animate")}
-      disabled={disabled}
+      disabled={disabled || isLoading ? true : false}
     >
       {buttonContent}
     </button>
