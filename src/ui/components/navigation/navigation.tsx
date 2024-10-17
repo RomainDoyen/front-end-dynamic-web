@@ -30,10 +30,10 @@ export default function navigation() {
             <ActiveLink href="/contacts">Contacts</ActiveLink>
           </Typography>
           <div className="flex items-center gap-2">
-            <Button variant="accent" size="small">
+            <Button variant="accent" size="small" baseUrl="/connexion">
               Connexion
             </Button>
-            <Button variant="secondary" size="small">
+            <Button variant="secondary" size="small" baseUrl="/connexion/inscription">
               Rejoindre
             </Button>
           </div>
