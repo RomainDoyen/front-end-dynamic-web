@@ -9,7 +9,7 @@ export default function Home() {
         title={"Dynamic Web"} 
         description={"Description..."}
       />
-      <Layout>
+      <Layout isDisplayBreadcrumb={false}>
         <Landingpagecontainer />
       </Layout>
     </>
