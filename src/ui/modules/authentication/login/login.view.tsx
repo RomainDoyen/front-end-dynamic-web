@@ -36,8 +36,7 @@ export default function loginview({ form }: RegisterType ) {
           </div>
           <Loginform form={form} />
           <Typography 
-              variant="caption4" 
-              component="p" 
+              variant="caption4"  
               theme="primary"
               className="max-w-md mx-auto space-y-1 text-center"
           >

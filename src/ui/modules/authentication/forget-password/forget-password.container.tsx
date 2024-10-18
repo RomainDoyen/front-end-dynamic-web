@@ -1,11 +1,11 @@
-import { useState } from "react";
 import Forgetpasswordview from "./forget-password.view"
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ForgetPasswordFormFieldType } from "@/types/forms";
+import Usetoggle from "@/hooks/use-toggle";
 
 export default function Forgetpasswordcontainer() {
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { value: isLoading, setValue: setIsLoading } = Usetoggle({});
 
   const {  
     handleSubmit, 

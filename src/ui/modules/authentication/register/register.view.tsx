@@ -37,7 +37,6 @@ export default function registerview({ form }: RegisterType) {
           <Registerform form={form} />
           <Typography 
               variant="caption4" 
-              component="p" 
               theme="gray"
               className="max-w-md mx-auto space-y-1 text-center"
           >
