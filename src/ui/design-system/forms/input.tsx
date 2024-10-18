@@ -40,7 +40,7 @@ export default function Input({
         className={clsx(
           isLoading ? "cursor-not-allowed" : "cursor-pointer",
           errors[id] ? "placeholder-alert-danger text-alert-danger" : "placeholder-gray-600",
-          "w-full p-4 font-light border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-primary",
+          "w-full p-4 font-light border border-gray-500 rounded focus:outline-none focus:ring-1 focus:ring-primary",
           className
         )}
       />
