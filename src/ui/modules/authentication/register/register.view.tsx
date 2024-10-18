@@ -35,6 +35,23 @@ export default function registerview({ form }: RegisterType) {
             </div>
           </div>
           <Registerform form={form} />
+          <Typography 
+              variant="caption4" 
+              component="p" 
+              theme="gray"
+              className="max-w-md mx-auto space-y-1 text-center"
+          >
+            <div>En t'inscrivant, tu acceptes les</div>
+            <div>
+              <Link href="/#" className="text-gray">
+                Conditions générales d'utilisation
+              </Link>
+              {" "} et la {" "}
+              <Link href="/#" className="text-gray">
+                Politique de confidentialité.
+              </Link>
+            </div>
+          </Typography>
         </Box>
       </div>
     </Container>

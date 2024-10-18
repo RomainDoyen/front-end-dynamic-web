@@ -35,6 +35,16 @@ export default function loginview({ form }: RegisterType ) {
             </div>
           </div>
           <Loginform form={form} />
+          <Typography 
+              variant="caption4" 
+              component="p" 
+              theme="primary"
+              className="max-w-md mx-auto space-y-1 text-center"
+          >
+            <Link href="/connexion/mots-de-passe-perdu" className='flex justify-center'>
+              Mot de passe perdu ?
+            </Link>
+          </Typography>
         </Box>
       </div>
     </Container>
