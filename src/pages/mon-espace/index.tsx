@@ -9,8 +9,7 @@ export default function MonEspace() {
         title={"Mon espace sur Dynamic Web"} 
         description={"Mon espace"}
       />
-      <Layout>
-        Mon espace
+      <Layout withSidebar>
         <Useraccountcontainer />
       </Layout>
     </>
