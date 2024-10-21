@@ -28,7 +28,7 @@ export default function layout({ children, isDisplayBreadcrumb = true, withSideb
       </Container>
     )
   } else {
-    return view = <>{children}</>;
+    view = <>{children}</>;
   }
 
   return (
