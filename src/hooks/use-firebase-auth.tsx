@@ -1,13 +1,28 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { auth } from '@/config/firebase.config';
-import { UserType } from '@/types/users';
+import { auth, db } from '@/config/firebase.config';
+import { UserDocumentType, UserType } from '@/types/users';
 import { onAuthStateChanged, User } from 'firebase/auth';
+import { doc, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 
 export default function usefirebaseauth() {
 
   const [authUser, setAuthUser] = useState<UserType | null >(null);
   const [authUserIsloading, setAuthUserIsloading] = useState<boolean>(true);
+
+  const getUserDocument = async (user: UserType) => {
+    if (auth.currentUser) {
+      const documentRef = doc(db, "users", auth.currentUser.uid);
+      const usercompact = user;
+      onSnapshot(documentRef, (doc) => {
+        if (doc.exists()) {
+          usercompact.userDocument = doc.data() as UserDocumentType;
+        }
+        setAuthUser(usercompact);
+        setAuthUserIsloading(false);
+      });
+    }
+  }
 
   const formatAuthUser = (user: UserType) => ({
       uid: user.uid,
@@ -28,6 +43,7 @@ export default function usefirebaseauth() {
     setAuthUserIsloading(true);
 
     const formatedUser = formatAuthUser(authState);
+    await getUserDocument(formatedUser);
   }
 
   useEffect(() => {
@@ -40,3 +56,4 @@ export default function usefirebaseauth() {
     authUserIsloading,
   }
 }
+
