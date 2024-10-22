@@ -4,8 +4,12 @@ import Typography from "@/ui/design-system/typography/typography"
 import Button from "@/ui/design-system/button/button"
 import Link from "next/link"
 import ActiveLink from "./active-link"
+import { useAuth } from "@/context/AuthUserContext"
 
 export default function navigation() {
+
+  const { authUser, authUserIsLoading } = useAuth();
+
   return (
     <div className="border-b-2 border-gray-400">
       <Container className="flex items-center justify-between py-1.5 gap-7">

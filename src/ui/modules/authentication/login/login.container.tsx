@@ -4,9 +4,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import Usetoggle from "@/hooks/use-toggle";
 import { toast } from "react-toastify";
 import { firebaseLogin } from "@/api/authentication";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "@/config/firebase.config";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function Logincontainer() {
@@ -14,19 +11,6 @@ export default function Logincontainer() {
   const router = useRouter();
 
   const { value: isLoading, setValue: setIsLoading } = Usetoggle({});
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const uid = user.uid;
-        console.log("User is logged in", user);
-      } else {
-        console.log("User is logged out");
-      }
-    }
-    );
-    return () => unsubscribe();
-  }, []);
 
   const {  
     handleSubmit, 

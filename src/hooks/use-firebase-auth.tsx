@@ -18,7 +18,9 @@ export default function usefirebaseauth() {
         if (doc.exists()) {
           usercompact.userDocument = doc.data() as UserDocumentType;
         }
-        setAuthUser(usercompact);
+        setAuthUser((prevAuthUser) => (
+          {...prevAuthUser, ...usercompact}
+        ));
         setAuthUserIsloading(false);
       });
     }
