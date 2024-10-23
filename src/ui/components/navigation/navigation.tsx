@@ -5,10 +5,22 @@ import Button from "@/ui/design-system/button/button"
 import Link from "next/link"
 import ActiveLink from "./active-link"
 import { useAuth } from "@/context/AuthUserContext"
+import AccountAvatarNavigationLink from "./account-avatar-link"
 
 export default function navigation() {
 
   const { authUser, authUserIsLoading } = useAuth();
+
+  const authentificationSystem = (
+    <div className="flex items-center gap-2">
+      <Button variant="accent" size="small" baseUrl="/connexion">
+        Connexion
+      </Button>
+      <Button variant="secondary" size="small" baseUrl="/connexion/inscription">
+        Rejoindre
+      </Button>
+    </div>
+  );
 
   return (
     <div className="border-b-2 border-gray-400">
@@ -33,14 +45,11 @@ export default function navigation() {
             <ActiveLink href="/formations">Formations</ActiveLink>
             <ActiveLink href="/contacts">Contacts</ActiveLink>
           </Typography>
-          <div className="flex items-center gap-2">
-            <Button variant="accent" size="small" baseUrl="/connexion">
-              Connexion
-            </Button>
-            <Button variant="secondary" size="small" baseUrl="/connexion/inscription">
-              Rejoindre
-            </Button>
-          </div>
+          {!authUser ? (
+            authentificationSystem
+          ) : (
+            <AccountAvatarNavigationLink />
+          )}
         </div>
       </Container>
     </div>

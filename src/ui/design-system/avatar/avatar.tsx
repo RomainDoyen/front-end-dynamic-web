@@ -27,7 +27,7 @@ export default function avatar({ size = 'medium', src, alt }: avatarProps) {
     <div className={clsx(sizeAvatar, "bg-gray-400 rounded-full relative")}>
       <Image
         fill
-        src={src}
+        src={src ? src : "/images/avatar.png"}
         alt={alt}
         className="object-cover object-center rounded-full"
       />

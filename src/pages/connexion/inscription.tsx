@@ -1,6 +1,7 @@
 import Seo from "@/ui/components/seo/seo";
 import Layout from "@/ui/components/layout/layout";
 import Registercontainer from "@/ui/modules/authentication/register/register.container";
+import { GUEST } from "@/lib/session-status";
 
 export default function Inscription() {
   return (
@@ -9,7 +10,7 @@ export default function Inscription() {
         title={"Inscription sur Dynamic Web"} 
         description={"Page d' inscription"}
       />
-      <Layout>
+      <Layout sessionStatus={GUEST}>
         <Registercontainer />
       </Layout>
     </>

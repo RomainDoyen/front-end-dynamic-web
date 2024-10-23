@@ -1,15 +1,11 @@
 import { firebaseLogout } from "@/api/authentication";
 import Box from "@/ui/design-system/box/box"
-import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import Button from "@/ui/design-system/button/button";
 import Typography from "@/ui/design-system/typography/typography";
 import Activelink from "./active-link";
 
 export default function Useraccountnavigation() {
-
-  const router = useRouter();
-
   const handleLogout = async () => {
     const { error } = await firebaseLogout();
     if (error) {
@@ -17,7 +13,6 @@ export default function Useraccountnavigation() {
       return;
     }
     toast.success("Vous êtes déconnecté avec succès");
-    router.push("/connexion");
   }
 
   return (
