@@ -1,8 +1,7 @@
 import clsx from "clsx";
 import Typography from "../typography/typography";
 
-type InputType = {
-  type?: "email" | "password" | "text";
+type TextareaProps = {
   placeholder: string;
   isLoading: boolean;
   register: any;
@@ -13,21 +12,22 @@ type InputType = {
   id: string;
   required?: boolean;
   label?: string;
+  rows?: number;
 }
 
-export default function Input({ 
-  type = "text", 
-  placeholder, 
-  isLoading, 
-  register, 
-  isAutoComplete = false, 
+export default function Textarea({
+  placeholder,
+  isLoading,
+  register,
+  isAutoComplete = false,
   className,
   errors,
   errorMsg = "Tu dois remplir ce champ",
   id,
   required = true,
   label,
-}: InputType) {
+  rows = 5
+}: TextareaProps) {
   return (
     <div className="space-y-2">
       {label && (
@@ -39,17 +39,17 @@ export default function Input({
           {label}
         </Typography>
       )}
-      <input 
-        type={type} 
-        placeholder={placeholder} 
-        disabled={isLoading} 
+      <textarea 
+        rows={rows}
+        placeholder={placeholder}
+        disabled={isLoading}
         {...register(id, { required: {
             value: required,
             message: errorMsg
         }})}
         autoComplete={isAutoComplete ? "on" : "off"}
         className={clsx(
-          isLoading ? "cursor-not-allowed" : "cursor-pointer",
+          isLoading ? "bg-gray-300 focus:ring-gray-300 cursor-not-allowed" : "bg-white",
           errors[id] ? "placeholder-alert-danger text-alert-danger" : "placeholder-gray-600",
           "w-full p-4 font-light border border-gray-500 rounded focus:outline-none focus:ring-1 focus:ring-primary",
           className

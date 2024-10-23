@@ -3,6 +3,7 @@ import OnboardingView from "./onboarding.view"
 import WelcomeStep from "./components/steps/welcome-step/welcome-step";
 import { OnboardingStepsList } from "@/types/onboarding-steps-list";
 import ProfileStep from "./components/steps/profile-step/profile-step";
+import AvatarStep from "./components/steps/avatar-step/avatar-step";
 
 export default function OnboardingContainer() {
 
@@ -11,8 +12,7 @@ export default function OnboardingContainer() {
   const stepList: OnboardingStepsList[] = [
     { id: 1, label: "Bienvenue", component: { step: WelcomeStep }},
     { id: 2, label: "Profile", component: { step: ProfileStep }},
-    // { id: 3, label: "Step 3", component: { step: <div>Step 3</div> }},
-    // { id: 4, label: "Step 4", component: { step: <div>Step 4</div> }},
+    { id: 3, label: "Avatar", component: { step: AvatarStep }},
   ];
 
   const getCurrentStep = () => {

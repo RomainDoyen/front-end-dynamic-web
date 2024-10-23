@@ -23,3 +23,9 @@ export type LoginFormFieldType = {
 export type ForgetPasswordFormFieldType = {
   email: string;
 }
+
+export type OnboardingProfileFormFieldType = {
+  displayName: string;
+  expertise: string;
+  biography: string;
+}
