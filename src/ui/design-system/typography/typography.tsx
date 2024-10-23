@@ -17,7 +17,7 @@ type TypographyProps = {
   | "caption3" 
   | "caption4";
   children: React.ReactNode;
-  theme?: "black" | "gray" | "white" | "primary" | "secondary" | "danger" | "success" | "warning";
+  theme?: "black" | "gray" | "gray-600" | "white" | "primary" | "secondary" | "danger" | "success" | "warning";
   weight?: "light" | "regular" | "medium" | "bold";
   className?: string;
   component?: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "span" | "div";
@@ -83,6 +83,9 @@ export default function typography({
       break;
     case "gray":
       colorStyles = "text-gray-700";
+      break;
+    case "gray-600":
+      colorStyles = "text-gray-600";
       break;
     case "white":
       colorStyles = "text-white";
