@@ -38,7 +38,7 @@ export default function OnboardingContainer() {
     return false;
   }
 
-  const finalStep = () => {
+  const isFinalStep = () => {
     if (currentStep === stepList.length) {
       return true;
     }
@@ -52,7 +52,7 @@ export default function OnboardingContainer() {
         next={next}
         prev={prev}
         isFirstStep={isFirstStep}
-        finalStep={finalStep}
+        isFinalStep={isFinalStep}
         stepList={stepList}
       />
     </div>

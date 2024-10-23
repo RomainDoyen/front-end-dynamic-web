@@ -1,16 +1,15 @@
 import { BaseComponentProps } from "@/types/onboarding-steps-list"
-import Button from "@/ui/design-system/button/button"
+import OnboardingFooter from "../../footer/onboarding-footer"
 
-export default function WelcomeStep({ next }: BaseComponentProps) {
+export default function WelcomeStep({ next, isFirstStep, isFinalStep }: BaseComponentProps) {
   return (
-    <div>
+    <div className="relative h-screen">
       Welcome step
-      <Button
-        type="button"
-        action={next}
-      >
-        Suivant
-      </Button>
+      <OnboardingFooter 
+        next={next} 
+        isFirstStep={isFirstStep}
+        isFinalStep={isFinalStep}
+      />
     </div>
   )
 }

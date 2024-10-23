@@ -5,7 +5,7 @@ export default function OnboardingView({
   next, 
   prev, 
   isFirstStep, 
-  finalStep, 
+  isFinalStep, 
   stepList 
 }: BaseComponentProps) {
     if (getCurrentStep()?.component) {
@@ -17,7 +17,7 @@ export default function OnboardingView({
             next={next} 
             prev={prev} 
             isFirstStep={isFirstStep} 
-            finalStep={finalStep} 
+            isFinalStep={isFinalStep} 
             stepList={stepList}
             getCurrentStep={getCurrentStep}
           />

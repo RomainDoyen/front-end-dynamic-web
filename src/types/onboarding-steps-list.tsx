@@ -10,7 +10,7 @@ export type BaseComponentProps = {
   next: () => void;
   prev: () => void;
   isFirstStep: () => boolean;
-  finalStep: () => boolean;
+  isFinalStep: () => boolean;
   stepList: OnboardingStepsList[];
   getCurrentStep: () => OnboardingStepsList | undefined;
 };
