@@ -1,4 +1,5 @@
 import { auth } from "@/config/firebase.config";
+import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
 import { FirebaseError } from "firebase/app";
 import { 
   createUserWithEmailAndPassword, 
@@ -14,9 +15,10 @@ export const firebaseCreateUser = async (email: string, password: string) => {
     return { data: userCredential.user};
   } catch (error) {
     const firebaseError = error as FirebaseError;
+    const errorMessage = getFirebaseErrorMessage("createUserWithEmailAndPassword", firebaseError.code);
     return { error: {
       code: firebaseError.code,
-      message: firebaseError.message
+      message: errorMessage
     }};
   }
 }
@@ -27,9 +29,10 @@ export const firebaseLogin = async (email: string, password: string) => {
     return { data: userCredential.user};
   } catch (error) {
     const firebaseError = error as FirebaseError;
+    const errorMessage = getFirebaseErrorMessage("signInWithEmailAndPassword", firebaseError.code);
     return { error: {
       code: firebaseError.code,
-      message: firebaseError.message
+      message: errorMessage
     }};
   }
 }
@@ -40,9 +43,10 @@ export const firebaseLogout = async () => {
     return { data: true };
   } catch (error) {
     const firebaseError = error as FirebaseError;
+    const errorMessage = getFirebaseErrorMessage("signOut", firebaseError.code);
     return { error: {
       code: firebaseError.code,
-      message: firebaseError.message
+      message: errorMessage
     }};
   }
 }
@@ -53,9 +57,10 @@ export const firebaseForgetPassword = async (email: string) => {
     return { data: true };
   } catch (error) {
     const firebaseError = error as FirebaseError;
+    const errorMessage = getFirebaseErrorMessage("sendPasswordResetEmail", firebaseError.code);
     return { error: {
       code: firebaseError.code,
-      message: firebaseError.message
+      message: errorMessage
     }};
   }
 }
@@ -67,9 +72,10 @@ export const sendEmailVerificationProcedure = async () => {
       return { data: true };
     } catch (error) {
       const firebaseError = error as FirebaseError;
+      const errorMessage = getFirebaseErrorMessage("sendEmailVerification", firebaseError.code);
       return { error: {
         code: firebaseError.code,
-        message: firebaseError.message
+        message: errorMessage
       }};
     }
   } else {
@@ -97,7 +103,7 @@ export const updateUserIdentificationData = async(uid: string, data: any) => {
   if (!result.ok) {
     const errorResponse = await result.json();
     const firebaseError = errorResponse as FirebaseError;
-        
+    // const errorMessage = getFirebaseErrorMessage("sendEmailVerification", firebaseError.code);
     return ({
       error: {
         code: firebaseError.code,
