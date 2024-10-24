@@ -3,9 +3,10 @@ import clsx from "clsx";
 type SpinnerProps = {
   size?: 'small' | 'medium' | 'large';
   variant?: 'primary' | 'white';
+  className?: string;
 }
 
-export default function spinner({ size = 'medium', variant = 'primary' }: SpinnerProps) {
+export default function spinner({ size = 'medium', variant = 'primary', className }: SpinnerProps) {
   let variantStyle: string = "", sizeStyle: string = "";
 
   switch (variant) {
@@ -32,7 +33,7 @@ export default function spinner({ size = 'medium', variant = 'primary' }: Spinne
   return (
     <svg
       role="spinner"
-      className={clsx('animate-spin', variantStyle, sizeStyle)}
+      className={clsx('animate-spin', variantStyle, sizeStyle, className)}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

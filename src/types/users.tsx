@@ -19,4 +19,5 @@ export type UserDocumentType = {
   displayName: string,
   expertise: string,
   biography: string,
+  photoURL: string | null,
 }
