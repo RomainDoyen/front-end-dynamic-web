@@ -81,3 +81,30 @@ export const sendEmailVerificationProcedure = async () => {
     };
   }
 }
+
+export const updateUserIdentificationData = async(uid: string, data: any) => {
+  const result = await fetch('https://us-central1-dynamicweb-cad18.cloudfunctions.net/updateUser', {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+          uid: uid,
+          data: data
+      })
+  })
+
+  if (!result.ok) {
+    const errorResponse = await result.json();
+    const firebaseError = errorResponse as FirebaseError;
+        
+    return ({
+      error: {
+        code: firebaseError.code,
+        message:firebaseError.message
+      }
+    })
+  }
+
+  return { data: true }
+}
