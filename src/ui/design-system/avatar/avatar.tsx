@@ -1,5 +1,5 @@
 type avatarProps = {
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | 'extra-large';
   src: string;
   alt: string;
 }
@@ -20,6 +20,9 @@ export default function avatar({ size = 'medium', src, alt }: avatarProps) {
       break;
     case 'large':
       sizeAvatar = "w-[54px] h-[54px]";
+      break;
+    case 'extra-large':
+      sizeAvatar = "w-[130px] h-[130px]";
       break;
   }
 
