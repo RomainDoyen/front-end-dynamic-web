@@ -5,6 +5,7 @@ import Container from "../container/container";
 import Useraccountnavigation from "../navigation/user-account-navigation";
 import Session from "../session/session";
 import { SessionStatusTypes } from "@/types/session-status-types";
+import CallsToActionSideBarContribution from "../calls-to-action/calls-to-action-side-bar-contribution";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -21,8 +22,9 @@ export default function layout({ children, isDisplayBreadcrumb = true, withSideb
     view = (
       <Container className="mb-14">
         <div className="grid grid-cols-12 gap-7">
-          <div className="col-span-3">
+          <div className="col-span-3 space-y-8">
             <Useraccountnavigation />
+            <CallsToActionSideBarContribution />
           </div>
           <div className="col-span-9">
             {children}
