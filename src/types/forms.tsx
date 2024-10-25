@@ -29,3 +29,11 @@ export type OnboardingProfileFormFieldType = {
   expertise: string;
   biography: string;
 }
+
+export type UserProfileFormFieldType = {
+  displayName: string;
+  expertise: string;
+  biography: string;
+  github: string;
+  linkedin: string;
+}
