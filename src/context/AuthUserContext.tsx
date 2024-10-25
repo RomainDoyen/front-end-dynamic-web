@@ -15,6 +15,7 @@ const init = {
 const authUserContext = createContext({
   authUser: init,
   authUserIsLoading: true,
+  reloadAuthUserDate: () => {},
 })
 
 type AuthUserProviderProps = {
@@ -38,6 +39,7 @@ export default function AuthUserProvider({ children }: AuthUserProviderProps) {
           userDocument: UserDocumentType,
         },
         authUserIsLoading: auth.authUserIsloading as boolean,
+        reloadAuthUserDate: auth.reloadAuthUserDate as () => void,
       }}
     >
       {children}

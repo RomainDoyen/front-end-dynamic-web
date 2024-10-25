@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 
 export default function FinalStep({ isFinalStep }: BaseComponentProps) {
 
-  const { authUser } = useAuth();
+  const { authUser, reloadAuthUserDate } = useAuth();
 
   const { value: isLoading, toggle } = Usetoggle({});
 
@@ -83,6 +83,7 @@ export default function FinalStep({ isFinalStep }: BaseComponentProps) {
       toast.error(error.message);
       return;
     }
+    reloadAuthUserDate();
     toggle();
   }
 

@@ -10,6 +10,16 @@ export default function usefirebaseauth() {
   const [authUser, setAuthUser] = useState<UserType | null >(null);
   const [authUserIsloading, setAuthUserIsloading] = useState<boolean>(true);
 
+  const reloadAuthUserDate = async () => {
+    if (auth.currentUser) {
+      auth.currentUser.reload().then(() => {
+        authStateChanged(auth.currentUser);
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
+  }
+
   const getUserDocument = async (user: UserType) => {
     if (auth.currentUser) {
       const documentRef = doc(db, "users", auth.currentUser.uid);
@@ -56,6 +66,7 @@ export default function usefirebaseauth() {
   return {
     authUser,
     authUserIsloading,
+    reloadAuthUserDate,
   }
 }
 
