@@ -8,6 +8,8 @@ import Logo from "@/ui/design-system/logo/logo";
 import { useCallback, useEffect, useRef } from "react";
 import ReactCanvasConfetti from "react-canvas-confetti";
 import confetti from "canvas-confetti";
+import { firestoreUpdateDocument } from "@/api/firestore";
+import { toast } from "react-toastify";
 
 export default function FinalStep({ isFinalStep }: BaseComponentProps) {
 
@@ -68,7 +70,20 @@ export default function FinalStep({ isFinalStep }: BaseComponentProps) {
   }, []);
 
   const handleCloseOnboarding = async () => {
-    // fire();
+    toggle();
+
+    const { error } = await firestoreUpdateDocument(
+      "users", 
+      authUser.uid, 
+      { onboardingIsCompleted: true }
+    );
+
+    if (error) {
+      toggle();
+      toast.error(error.message);
+      return;
+    }
+    toggle();
   }
 
   return (
